@@ -1,7 +1,12 @@
+import { useEffect } from "react";
 import "./error.css"
 
 function Error({errorCode, errorShortInfo , errorInfo } :
                    {errorCode : number, errorShortInfo : string , errorInfo : string}) {
+
+    useEffect(() => {
+        document.title = "Ошибка " + errorCode;
+    });
 
     errorShortInfo = errorShortInfo.toUpperCase();
     errorInfo = errorInfo.toUpperCase();

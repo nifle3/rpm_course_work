@@ -1,0 +1,32 @@
+.footer{
+    padding-top: 4vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-info {
+    flex-direction: row;
+    text-align: center;
+}
+
+.link-to-social {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+    padding: 2vh;
+}
+
+.link-to-social:hover {
+    opacity: 75%;
+}
+
+.copyright-info {
+    display:flex;
+}
+
+.copyright-info > small {
+    padding-left: 1vh;
+}
+
+span, small{
+    color: var(--secondary-text-color);
+}
