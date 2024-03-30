@@ -1,17 +1,23 @@
 .header {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .navigation-menu {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
-h1, h2 {
-    color: var(--text-color);
+.navigation-item {
+    margin-right: clamp(2vh, 3vh, 4vh);
+    color: var(--text-color)
 }
 
-a {
-    text-decoration: none;
+.navigation-item:hover{
+    color: var(--text-hover-color);
+    transition: color 300ms ease-out;
 }

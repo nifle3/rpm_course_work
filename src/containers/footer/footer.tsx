@@ -1,12 +1,12 @@
-import vkIcon from "../../icons/icon-vk.svg";
-import tgIcon from "../../icons/icon-tg.svg";
-import twitterIcon from "../../icons/icon-twitter.svg";
-import copyrightIcon from "../../icons/copyright.svg";
+import vkIcon from "./icons/icon-vk.svg";
+import tgIcon from "./icons/icon-tg.svg";
+import twitterIcon from "./icons/icon-twitter.svg";
+import copyrightIcon from "./icons/copyright.svg";
 import "./footer.css"
 
-function Footer() {
+export default function Footer() {
     return (
-        <div className={"footer"}>
+        <footer className={"footer"}>
             <div className={"contact-info"}>
                 <div className={""}>
                     <a className={"link-to-social"} href={"#"}>
@@ -45,8 +45,6 @@ function Footer() {
                     Соглашение Правила рекомендаций Справка
                 </small>
             </div>
-        </div>
+        </footer>
     )
 }
-
-export default Footer;

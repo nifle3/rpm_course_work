@@ -5,3 +5,11 @@ html{
 body {
     background-color: var(--background-color);
 }
+
+h1, h2, h3 {
+    color: var(--text-color);
+}
+
+a {
+    text-decoration: none;
+}

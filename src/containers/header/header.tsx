@@ -1,24 +1,44 @@
-import burgerIcon from "../../icons/burger.svg"
-import magnifierIcon from "../../icons/magnifier.svg"
 import "./header.css"
+import Burger from "../../element/burger/burger.tsx"
+import Magnifier from "../../element/magnifier/magnifier.tsx";
+import {Link, useNavigate,} from "react-router-dom";
+import {useState} from "react";
 
-function Header() {
+//TODO: Добавить обработку профиля
+//TODO: Добавить ссылки на другие страницы
+export default function Header() {
+    const [majorUri, setMajorUri] = useState("/");
+    const navigate = useNavigate();
+
+    const setMajorUriTo = (uri : string) => {
+        return () => {
+            if (!document.documentURI.endsWith(uri)) {
+                navigate(uri)
+            }
+            setMajorUri(uri)
+        }
+    }
+
+    const setMajorUriToDefault = setMajorUriTo("/")
+    const setMajorUriToMovie = setMajorUriTo("/movie")
+    const setMajorUriToAnime = setMajorUriTo("/anime")
+    const setMajorUriToSerial = setMajorUriTo("/serial")
+
     return (
-        <div className={"header"}>
-            <a href={"#"}>
-                <img src={burgerIcon} alt={"Меню"}/>
-            </a>
-            <h1 className={"company-title"}>KИНОHUB</h1>
+        <header className={"header"}>
+            <Burger toAnime={setMajorUriToAnime} toDefault={setMajorUriToDefault}
+                    toMovie={setMajorUriToMovie} toSerial={setMajorUriToSerial}/>
+
             <div className={"navigation-menu"}>
-                <a href={"#"}><h2>Главное</h2></a>
-                <a href={"#"}><h2>Мое</h2></a>
-                <a href={"#"}><h2>Подписки</h2></a>
-                <img src={magnifierIcon} alt={"qwe"}/>
+                <h2><Link to={majorUri} className={"navigation-item"}>Главное</Link></h2>
+                <h2><Link to={"/my"} className={"navigation-item"}>Мое</Link></h2>
+                <h2><Link to={"/subscribe"} className={"navigation-item"}>Подписки</Link></h2>
+                <Magnifier/>
             </div>
 
-            <button/>
-        </div>
+            <div className={"profile-info"}>
+                <h1>Профиль</h1>
+            </div>
+        </header>
     )
 }
-
-export default Header;

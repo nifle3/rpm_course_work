@@ -1,0 +1,19 @@
+.burger-main:hover {
+}
+
+.burger {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.burger-icon {
+    margin-right: clamp(4vh, 4vh, 5vh);
+}
+
+.list-item {
+    display: flex;
+    flex-direction: row;
+    justify-items: start;
+    align-items: start;
+}
