@@ -20,30 +20,40 @@ export default function Burger({toDefault, toMovie, toAnime, toSerial} :
     return (
         <div className={"burger-main"} onMouseEnter={setAlternativeToggle} onMouseLeave={setAlternativeToggle}>
             <div className={"burger"}>
-                <a href={"#"} className={"burger-icon"}>
-                    <img src={burgerIcon} alt={"Меню"}/>
-                </a>
+                <img src={burgerIcon} alt={"Меню"}  className={"burger-icon"}/>
                 <h1>KИНОHUB</h1>
             </div>
             {isToggle &&
-                <ul>
-                    <li className={"list-item"}>
-                        <img src={mainIcon} alt={""}/>
-                        <button onClick={toDefault}>Главная</button>
-                    </li>
-                    <li className={"list-item"}>
-                        <img src={movieIcon} alt={""}/>
-                        <button onClick={toMovie}>Фильмы</button>
-                    </li>
-                    <li className={"list-item"}>
-                        <img src={animeIcon} alt={""}/>
-                        <button onClick={toAnime}>Аниме</button>
-                    </li>
-                    <li className={"list-item"}>
-                        <img src={serialIcon} alt={""}/>
-                        <button onClick={toSerial}>Сериалы</button>
-                    </li>
-                </ul>}
+            <ul>
+                <li className={"list-item"}>
+                    <img src={mainIcon} alt={""}/>
+                    <a className={"list-link"} onClick={(e) => {
+                        e.preventDefault()
+                        toDefault()
+                    }}>Главная</a>
+                </li>
+                <li className={"list-item"}>
+                    <img src={movieIcon} alt={""}/>
+                    <a className={"list-link"} onClick={(e) => {
+                        e.preventDefault()
+                        toMovie()
+                    }}>Фильмы</a>
+                </li>
+                <li className={"list-item"}>
+                    <img src={animeIcon} alt={""}/>
+                    <a className={"list-link"} onClick={(e) => {
+                        e.preventDefault()
+                        toAnime()
+                    }}>Аниме</a>
+                </li>
+                <li className={"list-item"}>
+                    <img src={serialIcon} alt={""}/>
+                    <a className={"list-link"} onClick={(e) => {
+                        e.preventDefault()
+                        toSerial()
+                    }}>Сериалы</a>
+                </li>
+            </ul>}
         </div>
     )
 }

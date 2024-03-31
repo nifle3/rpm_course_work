@@ -1,0 +1,7 @@
+.subscribe-div {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

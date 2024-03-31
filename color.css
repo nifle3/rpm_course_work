@@ -3,4 +3,9 @@
     --text-hover-color: #adadad;
     --secondary-text-color: #898989;
     --background-color: #000000;
+    --button-subscribe-color: #1263de;
+    --burger-color: #161616;
+    --transparency-color: rgba(0, 0, 0, 0);
+    --magnifier-open-color: #4e4e4e;
+    --magnifier-open-pan-color: #ffffff;
 }

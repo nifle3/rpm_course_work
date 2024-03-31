@@ -1,11 +1,9 @@
-import magnifierIcon from "./icons/magnifier.svg"
+import "./magnifier.css"
 
 export default function Magnifier() {
-
-
     return (
-        <div>
-            <img src={magnifierIcon} alt={"Поиск"}/>
+        <div className={"magnifier"}>
+            <input className={"magnifier-input"} placeholder={"Поиск"}/>
         </div>
     )
 }

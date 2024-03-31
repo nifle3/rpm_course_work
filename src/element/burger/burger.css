@@ -17,3 +17,7 @@
     justify-items: start;
     align-items: start;
 }
+
+.list-link {
+    color: var(--text-color)
+}

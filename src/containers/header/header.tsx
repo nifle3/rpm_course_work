@@ -5,14 +5,13 @@ import {Link, useNavigate,} from "react-router-dom";
 import {useState} from "react";
 
 //TODO: Добавить обработку профиля
-//TODO: Добавить ссылки на другие страницы
 export default function Header() {
     const [majorUri, setMajorUri] = useState("/");
     const navigate = useNavigate();
 
     const setMajorUriTo = (uri : string) => {
         return () => {
-            if (!document.documentURI.endsWith(uri)) {
+            if (!document.documentURI.includes(uri)) {
                 navigate(uri)
             }
             setMajorUri(uri)

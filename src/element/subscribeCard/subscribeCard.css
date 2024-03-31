@@ -1,0 +1,21 @@
+.subscribe-card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 1vh;
+}
+
+.subscribe-btn {
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 20px;
+    background-color: var(--button-subscribe-color);
+    color: var(--text-color);
+    width: clamp(100px, 159px, 300px);
+    height: clamp(30px, 41px, 50px);
+}
+
+.subscribe-image {
+}

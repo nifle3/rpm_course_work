@@ -1,0 +1,38 @@
+.magnifier {
+    display: flex;
+    align-content: center;
+}
+
+.magnifier-input {
+    border: none;
+    border-radius: 8px;
+    background-color: var(--transparency-color);
+    background-image: url("./icons/magnifier.svg");
+    background-repeat: no-repeat;
+    color: var(--transparency-color);
+    width: 10%;
+    transition: width 300ms ease-out, color 300ms ease-out, background-color 300ms ease-out;
+    height: 35px;
+    outline: none;
+}
+
+.magnifier-input::placeholder {
+    color: var(--transparency-color);
+}
+
+.magnifier-input:hover {
+    background-image: url("./icons/magnifierHover.svg");
+}
+
+.magnifier-input:focus {
+    background-image: url("./icons/magnifierHover.svg");
+    border: none;
+    background-position: right;
+    background-color: var(--magnifier-open-color);
+    color: var(--text-color);
+    width: 351px;
+}
+
+.magnifier-input:focus::placeholder {
+    color: var(--text-color);
+}
