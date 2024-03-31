@@ -5,8 +5,13 @@ import img3 from "./icons/image3.svg"
 import img4 from "./icons/image4.svg"
 import img5 from "./icons/image5.svg"
 import SubscribeCard from "../../element/subscribeCard/subscribeCard.tsx"
+import {useEffect} from "react";
 
 export default function Subscribe() {
+    useEffect(() => {
+        document.title = "КИНОHUB | Подписки"
+    })
+
     return (
         <div className={"subscribe-div"}>
             <SubscribeCard image={img1} description={"1 000₽ в первый год далее 2 349 в год"}/>

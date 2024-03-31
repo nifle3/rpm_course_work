@@ -1,0 +1,14 @@
+.not-in-account {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
+.not-in-account-text {
+    font-size: clamp(7vh, 8vh, 9vh);
+    font-weight: bold;
+    color: var(--text-color)
+}
