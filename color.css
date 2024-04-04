@@ -8,4 +8,10 @@
     --transparency-color: rgba(0, 0, 0, 0);
     --magnifier-open-color: #4e4e4e;
     --magnifier-open-pan-color: #ffffff;
+    --btn-login-color: #2d2c2c;
+    --btn-login-text-color: #e1d4d4;
+    --major-info-button-color: #b8e5ff;
+    --major-info-button-hover-color: #c7c7c7;
+    --welcome-button-color: #d9d9d9;
+    --welcome-button-hover-color: #b1b1b1;
 }

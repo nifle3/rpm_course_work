@@ -11,11 +11,15 @@ export default function Header() {
 
     const setMajorUriTo = (uri : string) => {
         return () => {
-            if (!document.documentURI.includes(uri)) {
+            if (!document.documentURI.endsWith(uri)) {
                 navigate(uri)
             }
             setMajorUri(uri)
         }
+    }
+
+    const onClickBtn = () => {
+        navigate("/")
     }
 
     const setMajorUriToDefault = setMajorUriTo("/")
@@ -25,9 +29,10 @@ export default function Header() {
 
     return (
         <header className={"header"}>
-            <Burger toAnime={setMajorUriToAnime} toDefault={setMajorUriToDefault}
-                    toMovie={setMajorUriToMovie} toSerial={setMajorUriToSerial}/>
-
+            <div className={"burger"}>
+                <Burger toAnime={setMajorUriToAnime} toDefault={setMajorUriToDefault}
+                        toMovie={setMajorUriToMovie} toSerial={setMajorUriToSerial}/>
+            </div>
             <div className={"navigation-menu"}>
                 <h2><Link to={majorUri} className={"navigation-item"}>Главное</Link></h2>
                 <h2><Link to={"/my"} className={"navigation-item"}>Мое</Link></h2>
@@ -35,9 +40,7 @@ export default function Header() {
                 <Magnifier/>
             </div>
 
-            <div className={"profile-info"}>
-                <h1>Профиль</h1>
-            </div>
+            <button className={"profile-info"} onClick={onClickBtn}>Войти</button>
         </header>
     )
 }

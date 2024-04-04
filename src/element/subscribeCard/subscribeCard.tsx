@@ -2,8 +2,13 @@ import "./subscribeCard.css"
 
 //TODO: Выровнять
 //TODO: Сделать одинаковый размер
-export default function SubscribeCard({image, description} :
-                                  {image: string, description: string}) {
+
+export interface SubscribeCardProps {
+    image : string
+    description : string
+}
+
+export default function SubscribeCard({image, description} : SubscribeCardProps) {
     return (
         <div className={"subscribe-card"}>
             <img src={image} alt={"Подписка"} className={"subscribe-image"}/>

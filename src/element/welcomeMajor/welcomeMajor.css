@@ -1,0 +1,9 @@
+.welcome {
+    width: 100%;
+    height: 70vh;
+}
+
+.welcome-image{
+    width: inherit;
+    height: inherit;
+}

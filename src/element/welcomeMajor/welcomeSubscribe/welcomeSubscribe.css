@@ -1,0 +1,51 @@
+.welcome-major-page {
+    overflow: hidden;
+}
+
+.major-subscribe-info-text {
+    left: 3rem;
+    position: relative;
+    z-index: 0;
+    bottom:6.542rem;
+    transition: bottom 300ms ease-out;
+}
+
+.welcome-major-page:hover .major-subscribe-info-text {
+    bottom:12.8rem;
+}
+
+.welcome-text {
+    color: white;
+    font-size:5rem;
+    width: 65rem;
+    font-family: CYBER, Inter, serif;
+}
+
+.welcome-number {
+    color: white;
+    font-size:5rem;
+    margin-left: 1rex;
+    font-family: Abel, serif;
+}
+
+.major-subscribe-info-text-button {
+    margin-top: 2rem;
+    display: flex;
+}
+
+.major-subscribe-info-text-button > button {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-right: 1rem;
+    height: 2.5rem;
+    text-align: center;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--welcome-button-color);
+    transition: background-color 300ms ease-out;
+}
+
+.major-subscribe-info-text-button > button:hover {
+    background-color: var(--welcome-button-hover-color);
+}
+

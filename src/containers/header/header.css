@@ -1,6 +1,7 @@
 .header {
+    position: sticky;
+    top: 0;
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
@@ -8,7 +9,6 @@
 
 .navigation-menu {
     display: flex;
-    flex-direction: row;
     align-items: center;
 }
 
@@ -20,4 +20,16 @@
 .navigation-item:hover{
     color: var(--text-hover-color);
     transition: color 300ms ease-out;
+}
+
+.profile-info {
+    border: none;
+    border-radius: 5px;
+    background-color: var(--btn-login-color);
+    width: clamp(100px, 130px, 150px);
+    height: clamp(30px, 35px, 40px);
+    color: var(--btn-login-text-color);
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
 }
