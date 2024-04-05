@@ -1,0 +1,18 @@
+.input-login {
+    background-color: var(--transparency-color);
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom-width: 3px;
+    border-bottom-color: var(--input-color);
+    color: var(--text-color);
+}
+
+.input-login::placeholder {
+    color: var(--input-placeholder-color);
+    transition: color 300ms ease-out;
+}
+
+.input-login:focus::placeholder {
+    color: var(--input-placeholder-focus-color);
+}

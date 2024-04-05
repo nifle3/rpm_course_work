@@ -1,6 +1,6 @@
 .main-container {
     display: flex;
     flex-direction: column;
-    margin-left: clamp(3vw, 5vw, 10vw);
-    margin-right: clamp(3vw, 5vw, 10vw);
+    margin-left: clamp(1vw, 7vw, 20vw);
+    margin-right: clamp(1vw, 7vw, 20vw);
 }

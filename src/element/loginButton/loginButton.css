@@ -1,0 +1,10 @@
+.login-button {
+    border: none;
+    background-color: var(--button-login-color);
+    color: var(--text-color);
+    transition: background-color 300ms ease-out;
+}
+
+.login-button:hover {
+    background-color: var(--button-login-hover-color);
+}

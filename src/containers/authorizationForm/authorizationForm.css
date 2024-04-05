@@ -1,0 +1,9 @@
+.authorization-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.authorization-form-element {
+    margin-top: 2rem;
+    height: 2rem;
+}

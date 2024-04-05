@@ -1,0 +1,16 @@
+.carousel-watch-image-wrapper {
+    transition: filter 300ms ease-out;
+    position: relative;
+}
+
+.carousel-watch-image::after {
+    content: url("./icons/play.svg");
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+}
+
+.carousel-watch-image-wrapper:hover {
+    filter: blur(2px);
+}

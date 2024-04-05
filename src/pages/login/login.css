@@ -1,3 +1,40 @@
 .login-page {
+    height: 100vh;
+}
 
+.login-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 40vw;
+}
+
+.login-container {
+    position: absolute;
+    top: 25%;
+    right: 25%;
+}
+
+.login-link-container {
+    display:flex;
+}
+
+.login-link {
+    margin-right: 3rem;
+    color: var(--login-link-color);
+    font-size: 2rem;
+}
+
+.login-link-selected {
+    margin-right: 3rem;
+    color: var(--login-link-select-color);
+    font-size: 2rem;
+}
+
+.login-exit {
+    position: absolute;
+    top: 3rem;
+    right: 3rem;
+    cursor: pointer;
 }

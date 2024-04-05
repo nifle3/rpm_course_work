@@ -11,7 +11,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    z-index: 100;
+    z-index: 1000000;
 }
 
 .burger-icon {
@@ -19,7 +19,7 @@
 }
 
 .burger-dropdown {
-    z-index: 99;
+    z-index: 999999;
     background-color: var(--burger-color);
     width: 18rem;
     min-height: 25rem;

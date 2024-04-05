@@ -14,4 +14,11 @@
     --major-info-button-hover-color: #c7c7c7;
     --welcome-button-color: #d9d9d9;
     --welcome-button-hover-color: #b1b1b1;
+    --login-link-select-color: #5f7c8d;
+    --login-link-color: #5f7c8d63;
+    --input-color: #1392dc;
+    --input-placeholder-color: #5f7c8d8c;
+    --input-placeholder-focus-color: #5f7c8d42;
+    --button-login-color: #4b687f;
+    --button-login-hover-color: #1392dc;
 }
