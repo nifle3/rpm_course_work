@@ -6,10 +6,14 @@ body {
     background-color: var(--background-color);
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
     color: var(--text-color);
 }
 
 a {
     text-decoration: none;
+}
+
+button {
+    cursor: pointer;
 }

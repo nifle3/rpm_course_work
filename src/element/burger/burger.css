@@ -52,6 +52,7 @@
 
 .list-item:hover {
     color: var(--text-color);
+    cursor: pointer;
 }
 
 .list-link {

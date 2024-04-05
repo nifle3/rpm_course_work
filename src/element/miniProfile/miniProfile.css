@@ -1,0 +1,45 @@
+.mini-profile {
+    display: flex;
+    position: relative;
+    z-index: 100;
+}
+
+.mini-profile-circle {
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    line-height: 3rem;
+    border-radius: 50%;
+    background-color: red;
+    z-index: 100;
+}
+
+.mini-profile-dropdown {
+    border-radius: 20px;
+    padding-top: 1rem;
+    padding-left: 2rem;
+    top: -1rem;
+    right: -1rem;
+    z-index: 99;
+    width: 20rem;
+    height: 16rem;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    transition: opacity 300ms ease-out;
+    background-color: var(--burger-color);
+}
+
+.mini-profile:hover .mini-profile-dropdown{
+    opacity: 1;
+    visibility: visible;
+}
+
+.mini-profile-dropdown-email {
+
+}
+
+.mini-profile-dropdown-name {
+    font-size: 1.5rem;
+    color: var(--text-color)
+}

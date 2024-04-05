@@ -2,7 +2,7 @@ import "./welcomeSubscribe.css"
 import "../welcomeMajor.css"
 import infoPicture from "./icons/infoPicture.png"
 
-// TODO: Сделать масштабирование изображения
+// TODO: сделать так что бы не накладывался на бургер
 export default function WelcomeSubscribe(){
     return (
         <div className={"welcome welcome-major-page"}>

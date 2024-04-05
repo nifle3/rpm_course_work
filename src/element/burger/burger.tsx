@@ -15,10 +15,10 @@ export interface BurgerProps {
 export default function Burger({toDefault, toMovie, toAnime, toSerial} : BurgerProps) {
     return (
         <div className={"burger"}>
-            <button className={"burger-title"}>
+            <div className={"burger-title"}>
                 <img src={burgerIcon} alt={"Меню"}  className={"burger-icon"}/>
                 <h1>KИНОHUB</h1>
-            </button>
+            </div>
             <div className={"burger-dropdown"}>
                 <ul className={"burger-list"}>
                     <li className={"list-item"}>

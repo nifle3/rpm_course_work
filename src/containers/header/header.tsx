@@ -3,6 +3,7 @@ import Burger from "../../element/burger/burger.tsx"
 import Magnifier from "../../element/magnifier/magnifier.tsx";
 import {Link, useNavigate,} from "react-router-dom";
 import {useState} from "react";
+import MiniProfile from "../../element/miniProfile/miniProfile.tsx";
 
 //TODO: Добавить обработку профиля
 export default function Header() {
@@ -21,7 +22,7 @@ export default function Header() {
     const onClickBtn = () => {
         navigate("/")
     }
-
+    //<button className={"profile-info"} onClick={onClickBtn}>Войти</button>
     const setMajorUriToDefault = setMajorUriTo("/")
     const setMajorUriToMovie = setMajorUriTo("/movie")
     const setMajorUriToAnime = setMajorUriTo("/anime")
@@ -40,7 +41,7 @@ export default function Header() {
                 <Magnifier/>
             </div>
 
-            <button className={"profile-info"} onClick={onClickBtn}>Войти</button>
+            <MiniProfile/>
         </header>
     )
 }
