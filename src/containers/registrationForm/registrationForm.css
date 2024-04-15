@@ -4,6 +4,10 @@
 }
 
 .registration-form-element {
-    margin-top: 2rem;
-    height: 2rem;
+    margin-top: 2.3rem;
+    height: 2rem
+}
+
+.registration-form-button{
+    margin-top: 2.5rem;
 }

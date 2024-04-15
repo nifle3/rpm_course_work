@@ -8,7 +8,7 @@ export default function AuthorizationForm() {
         <div className={"authorization-form"}>
             <LoginInput placeHolder={"Почта"} className={"authorization-form-element"}/>
             <LoginInputPassword placeHolder={"Пароль"} className={"authorization-form-element"}/>
-            <LoginButton Text={"Войти"} className={"authorization-form-element"}/>
+            <LoginButton Text={"Войти"} className={"auth-form-button"}/>
         </div>
     )
 }

@@ -1,0 +1,20 @@
+.settings-link {
+    margin-top: 2.5rem;
+}
+
+.settings-link-info-wrapper {
+    color: var(--text-color);
+    font-family: inherit;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    width: 30rem;
+    height: 2.3rem;
+    text-align: left;
+    background-color: transparent;
+    transition: background-color 300ms ease-out;
+}
+
+.settings-link-info-wrapper:hover{
+    background-color: var(--settings-link-link-hover-color);
+}

@@ -1,34 +1,40 @@
 import "./login.css"
 import backgroundImage from "./icons/backgroundImage.png"
-import exit from "./icons/exit.svg"
-import {Link, Outlet, useNavigate} from "react-router-dom";
-import {useState} from "react";
+import {Link, Outlet} from "react-router-dom";
+import {useLayoutEffect, useState} from "react";
+import Exit from "../../element/exit/exit.tsx";
 
 export default function Login() {
     const [isEnterToAccount, setIsEnterToAccount] = useState<boolean>(true)
     const [isRegistration, setIsRegistration] = useState<boolean>(false);
-    const navigate = useNavigate()
 
-    const swapElement = () => {
-        setIsEnterToAccount(!isEnterToAccount)
-        setIsRegistration(!isRegistration)
+    useLayoutEffect(() => {
+        if (document.documentURI.includes("registration")) {
+            swapToRegistration()
+        }
+    });
+
+    const swapToRegistration = () => {
+        setIsRegistration(true)
+        setIsEnterToAccount(false)
     }
 
-    const goBack = () => {
-        navigate("/")
+    const swapToEnterToAccount = () => {
+        setIsRegistration(false)
+        setIsEnterToAccount(true)
     }
 
     return (
-        <div className={"login-page"}>
-            <img src={exit} alt={"Назад"} className={"login-exit"} onClick={goBack}/>
+        <>
+            <Exit/>
             <img src={backgroundImage} alt={""} className={"login-background-image"}/>
             <div className={"login-container"}>
                 <div className={"login-link-container"}>
-                    <Link to={"/enterToAccount"} onClick={swapElement}
+                    <Link to={"/enterToAccount"} onClick={swapToEnterToAccount}
                           className={isEnterToAccount ? "login-link-selected" : "login-link"}>
                         Вход
                     </Link>
-                    <Link to={"/enterToAccount/registration"} onClick={swapElement}
+                    <Link to={"/enterToAccount/registration"} onClick={swapToRegistration}
                           className={isRegistration ? "login-link-selected" : "login-link"}>
                         Регистрация
                     </Link>
@@ -37,6 +43,6 @@ export default function Login() {
                     <Outlet/>
                 </div>
             </div>
-        </div>
+        </>
     )
 }

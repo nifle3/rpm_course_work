@@ -1,7 +1,3 @@
-.login-page {
-    height: 100vh;
-}
-
 .login-background-image {
     position: absolute;
     top: 0;
@@ -11,6 +7,7 @@
 }
 
 .login-container {
+    width: 30rem;
     position: absolute;
     top: 25%;
     right: 25%;
@@ -30,11 +27,4 @@
     margin-right: 3rem;
     color: var(--login-link-select-color);
     font-size: 2rem;
-}
-
-.login-exit {
-    position: absolute;
-    top: 3rem;
-    right: 3rem;
-    cursor: pointer;
 }

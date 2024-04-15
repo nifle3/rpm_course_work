@@ -1,32 +1,38 @@
 import "../loginInput.css"
 import "./loginInputPassword.css"
+import {InputProps} from "../props.ts"
 import noSeePassword from "./icons/noSeePassword.svg"
+import seePassword from "./icons/seePassword.svg"
 import {useState} from "react";
-
-export interface InputProps {
-    placeHolder : string
-    className? : string
-}
 
 type typeInput = "password" | "text"
 
-export default function LoginInputPassword({placeHolder, className} : InputProps) {
-    const [type, setType] = useState<typeInput>("password")
+const passwordNameInput : typeInput = "password"
+const textNameInput : typeInput = "text"
+
+export default function LoginInputPassword({placeHolder, isRequired,className} : InputProps) {
+    const [type, setType] = useState<typeInput>(passwordNameInput)
+    const [icon, setIcon] = useState<string>(noSeePassword)
 
     const setAlternativeType = () => {
-        if (type == "password") {
-            setType("text")
+        if (type == passwordNameInput) {
+            setType(textNameInput)
+            setIcon(seePassword)
+
         } else {
-            setType("password")
+            setType(passwordNameInput)
+            setIcon(noSeePassword)
         }
     }
 
     return (
-        <div className={"login-input-password"}>
-            <img src={noSeePassword} alt={"Открыть пароль"} onClick={setAlternativeType}
-                 className={"input-login-password-see-password"}/>
+        <div className={"input-login-password"}>
             <input className={"input-login" + " " + className}
-                    placeholder={placeHolder} type={type}/>
+                   placeholder={placeHolder} type={type} required={isRequired ?? true}/>
+            <span className={"input-login-password-see-password"}>
+                <img src={icon} alt={"Открыть пароль"} onClick={setAlternativeType}
+                     />
+            </span>
         </div>
     )
 }

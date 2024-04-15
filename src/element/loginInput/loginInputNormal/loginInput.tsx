@@ -1,13 +1,9 @@
 import "../loginInput.css"
+import {InputProps} from "../props.ts";
 
-export interface InputProps {
-    placeHolder : string
-    className? : string
-}
-
-export default function LoginInput({placeHolder, className} : InputProps) {
+export default function LoginInput({placeHolder, isRequired, className} : InputProps) {
     return (
         <input className={"input-login" + " " + className}
-               placeholder={placeHolder}/>
+               placeholder={placeHolder} required={isRequired ?? true}/>
     )
 }

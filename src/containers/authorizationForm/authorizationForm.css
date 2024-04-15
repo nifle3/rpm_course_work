@@ -4,6 +4,10 @@
 }
 
 .authorization-form-element {
-    margin-top: 2rem;
+    margin-top: 2.3rem;
     height: 2rem;
+}
+
+.auth-form-button {
+    margin-top: 2.5rem;
 }
