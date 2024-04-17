@@ -14,6 +14,8 @@ import My from "./containers/my/my.tsx"
 import Subscribe from "./containers/subscribe/subscribe.tsx"
 import NotInAccount from "./containers/notInAccount/notInAccount.tsx"
 import Settings from "./pages/settings/settings.tsx"
+import DataSettings from "./pages/dataSettings/dataSettings.tsx";
+import SubscribeSettings from "./pages/subscribeSettings/subscribeSettings.tsx";
 
 register()
 
@@ -36,9 +38,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                     <Route path={"/notInAccount"} element={<NotInAccount/>}/>
                 </Route>
 
-                <Route path={"/settings"} element={<Settings/>}>
-
-                </Route>
+                <Route path={"/settings"} element={<Settings/>}/>
+                <Route path={"/settings/subscribe"} element={<SubscribeSettings/>}/>
+                <Route path={"/settings/data"} element={<DataSettings/>}/>
             </Routes>
         </BrowserRouter>
     </React.StrictMode>

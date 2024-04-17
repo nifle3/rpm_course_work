@@ -22,4 +22,8 @@
     --button-login-color: #4b687f;
     --button-login-hover-color: #1392dc;
     --settings-link-link-hover-color: #201f1f;
+    --data-settings-input-placeholder-color: #555555;
+    --data-settings-input-color: #201f1f;
+    --data-settings-image-color: #00000080;
+    --subscribe-settings-button-color: #201f1f;
 }

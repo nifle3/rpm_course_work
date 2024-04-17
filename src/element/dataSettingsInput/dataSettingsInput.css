@@ -1,0 +1,59 @@
+.data-settings-input {
+    margin-top: 2rem;
+}
+
+.data-settings-input-title {
+    font-family: Inter, serif;
+    font-size: 1.7rem;
+    color: var(--text-color);
+}
+
+.data-settings-data-input-wrapper {
+    background-color: var(--transparency-color);
+    width: 30rem;
+    height: 3rem;
+    border-radius: 10px;
+    transition: background-color 300ms ease-out;
+    display: flex;
+    align-items: center;
+}
+
+.data-settings-data-input-wrapper-bcg-color {
+    background-color: var(--data-settings-input-color);
+}
+
+.data-settings-data-input-wrapper:hover {
+    background-color: var(--data-settings-input-color);
+}
+
+.data-settings-data-input {
+    background-color: var(--transparency-color);
+    font-size: 1.4rem;
+    font-family: Inter, serif;
+    color: var(--text-color);
+    border: none;
+    outline:none;
+    width: 100%;
+    height: 100%;
+}
+
+.data-settings-data-input::placeholder {
+    color: var(--data-settings-input-placeholder-color);
+    font-size: 1.4rem;
+    font-family: Inter, serif;
+}
+
+.data-settings-input-update {
+    visibility: hidden;
+    opacity: 0;
+    cursor: pointer;
+    font-family: Inter, serif;
+    font-size: 1.4rem;
+    color: var(--text-color);
+    transition: opacity 300ms ease-out;
+}
+
+.data-settings-data-input:focus + .data-settings-input-update, .data-settings-data-input-wrapper:hover .data-settings-input-update {
+    opacity: 1;
+    visibility: visible;
+}

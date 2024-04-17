@@ -8,8 +8,8 @@ export default function Settings() {
             <Exit/>
             <div className={"settings-wrapper"}>
                 <h1>Настройки</h1>
-                <SettingsLink Title={"Подписка"} Info={"Управление подпиской"}/>
-                <SettingsLink Title={"Данные"} Info={"Изменение контактных данных"}/>
+                <SettingsLink Title={"Подписка"} Info={"Управление подпиской"} RedirectLink={"/settings/subscribe"}/>
+                <SettingsLink Title={"Данные"} Info={"Изменение контактных данных"} RedirectLink={"/settings/data"}/>
             </div>
         </>
     )

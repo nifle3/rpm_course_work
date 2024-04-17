@@ -1,0 +1,48 @@
+.subscribe-settings-container {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+}
+
+.subscribe-settings-title {
+    font-size: 2rem;
+    font-family: Inter, serif;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.subscribe-settings-info-container {
+    margin-top: 3rem;
+}
+
+.subscribe-settings-status {
+    font-size:1.4rem;
+    color: var(--text-color);
+}
+
+.subscribe-settings-subscribe-info {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.subscribe-settings-button {
+    float: right;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--transparency-color);
+    color: var(--text-color);
+    font-size: 1.4rem;
+    font-weight: bold;
+    padding: 8px;
+    transition: background-color 300ms ease-out;
+}
+
+.subscribe-settings-button:hover {
+    background-color: var(--subscribe-settings-button-color);
+}
+
+.subscribe-settings-subscribe-info > span, strong {
+    color: var(--text-color);
+    font-size: 1.4rem;
+    margin-right: 1.6rem;
+}

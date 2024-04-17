@@ -1,0 +1,43 @@
+.data-settings-container {
+    display: flex;
+    position: absolute;
+    top: 10rem;
+    left: 20rem;
+}
+
+.data-settings-title{
+    color: var(--text-color);
+    font-family: Inter, serif;
+    font-size: 2.8rem;
+    font-weight: bold;
+}
+
+.data-settings-image-wrapper {
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.data-settings-ava-wrapper {
+    display: block;
+    position: relative;
+    margin-left: 5rem;
+    border-radius: 50%;
+    width: 20rem;
+    height: 20rem;
+}
+
+.data-settings-ava-wrapper:after {
+    content: "";
+    position: absolute;
+    background: white;
+    opacity: 0;
+}
+
+.data-settings-image {
+    border-radius: inherit;
+    width: inherit;
+    height: inherit;
+
+}
