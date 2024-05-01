@@ -1,16 +1,33 @@
 .carousel-watch-image-wrapper {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.carousel-watch-image-wrapper > * {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+}
+
+.carousel-watch-image {
     transition: filter 300ms ease-out;
     position: relative;
 }
 
-.carousel-watch-image::after {
-    content: url("./icons/play.svg");
-    position: absolute;
-    z-index: 10;
-    top: 50%;
-    left: 50%;
+.carousel-watch-image-wrapper:hover .carousel-watch-image {
+    filter: blur(2px);
 }
 
-.carousel-watch-image-wrapper:hover {
-    filter: blur(2px);
+.carousel-watch-icon-image {
+    opacity: 0;
+    transition: opacity 400ms ease-out;
+    visibility: hidden;
+    max-width: 70%;
+    max-height: 70%;
+    z-index: 2;
+}
+
+.carousel-watch-image-wrapper:hover .carousel-watch-icon-image {
+    opacity: 1;
+    visibility: visible;
 }

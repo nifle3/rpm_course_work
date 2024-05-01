@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Main from "./pages/main/main.tsx"
 import {BrowserRouter, Route, Routes} from "react-router-dom"
-import {register} from "swiper/element"
 import Login from "./pages/login/login.tsx"
 import AuthorizationForm from "./containers/authorizationForm/authorizationForm.tsx"
 import RegistrationForm from "./containers/registrationForm/registrationForm.tsx"
@@ -16,8 +15,9 @@ import NotInAccount from "./containers/notInAccount/notInAccount.tsx"
 import Settings from "./pages/settings/settings.tsx"
 import DataSettings from "./pages/dataSettings/dataSettings.tsx";
 import SubscribeSettings from "./pages/subscribeSettings/subscribeSettings.tsx";
+import History from "./pages/history/history.tsx";
+import SubscribeCode from "./pages/subscrbeCode/subscribeCode.tsx";
 
-register()
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
@@ -41,6 +41,8 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                 <Route path={"/settings"} element={<Settings/>}/>
                 <Route path={"/settings/subscribe"} element={<SubscribeSettings/>}/>
                 <Route path={"/settings/data"} element={<DataSettings/>}/>
+                <Route path={"/history"} element={<History/>}/>
+                <Route path={"/code"} element={<SubscribeCode/>}/>
             </Routes>
         </BrowserRouter>
     </React.StrictMode>

@@ -12,8 +12,7 @@ export default function MiniProfile() {
                 </div>
                 <div className={"mini-profile-dropdown-links"}>
                     <Link to={"/settings"}><h4 className={"mini-profile-link"}>Настройки</h4></Link>
-                    <Link to={"/"}><h4 className={"mini-profile-link"}>Оценки и просмотры</h4></Link>
-                    <Link to={"/"}><h4 className={"mini-profile-link"}>Активация промокода</h4></Link>
+                    <Link to={"/code"}><h4 className={"mini-profile-link"}>Активация промокода</h4></Link>
                     <Link to={"/"}><h4 className={"mini-profile-link"}>Выйти</h4></Link>
                 </div>
             </div>

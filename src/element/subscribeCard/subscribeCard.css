@@ -1,13 +1,58 @@
 .subscribe-card {
+    position: relative;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     padding: 1vh;
+    width: clamp(234px, 4vw, 100px);
+    height: clamp(450px, 4vh, 300px);
+}
+
+.subscribe-card-div {
+    width: clamp(234px, 4vw, 100px);
+    height: clamp(311px, 4vh, 123px);
+}
+
+.subscribe-card-content {
+    position: relative;
+    text-align: center;
+    margin-top: 1rem;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.month-wrapper {
+    border-radius: 15px;
+    border-width: 3px;
+    border-color: white;
+    border-style: solid;
+    width: 50%;
+    text-align: center;
+    align-content: center;
+    height: 100px;
+    border-bottom: none;
+}
+
+.month-wrapper > span {
+    font-family: Inter, serif;
+    font-size: 4rem;
+}
+
+.month-desc {
+    margin-top: 2rem;
+}
+
+.subscribe-card-content span {
+    font-family: Inter, serif;
+    color: var(--text-color);
 }
 
 .subscribe-btn {
-    position: relative;
+    position: absolute;
+    bottom: 0;
     overflow: hidden;
     border: none;
     text-align: center;
@@ -16,22 +61,31 @@
     border-radius: 20px;
     background-color: var(--button-subscribe-color);
     color: var(--text-color);
-    width: clamp(100px, 159px, 300px);
-    height: clamp(30px, 41px, 50px);
+    width: clamp(200px, 4vw, 250px);
+    height: clamp(40px, 4vh, 50px);
+
 }
 
-.subscribe-btn::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    bottom: -50%;
-    left: -50%;
-    background: linear-gradient(to bottom, rgba(229, 172, 142, 0), rgba(255,255,255,0.5) 50%, rgba(229, 172, 142, 0));
-    transform: rotateZ(120deg) translate(9em, -9em);
+@media (hover: hover) {
+    .subscribe-btn::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        bottom: -50%;
+        left: -50%;
+        background: linear-gradient(to bottom, rgba(229, 172, 142, 0), rgba(255,255,255,0.5) 50%, rgba(229, 172, 142, 0));
+        transform: rotateZ(120deg) translate(9em, -9em);
+    }
+
+    .subscribe-btn:hover::after {
+        transform: rotateZ(120deg) translate(-9em, 8em);
+        transition: transform 0.5s ease-out;
+    }
 }
 
-.subscribe-btn:hover::after {
-    transform: rotateZ(120deg) translate(-9em, 8em);
-    transition: transform 0.5s ease-out;
+@media (max-width: 1450px) {
+    .subscribe-card {
+        margin-top: 2rem;
+    }
 }

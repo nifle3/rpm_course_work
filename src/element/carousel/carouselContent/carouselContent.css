@@ -1,0 +1,7 @@
+.carousel-content-image {
+    transition: transform 300ms ease-out;
+}
+
+.carousel-content-image:hover {
+    transform: perspective(100px) translateZ(3px);
+}
