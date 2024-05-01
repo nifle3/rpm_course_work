@@ -6,6 +6,14 @@ body {
     background-color: var(--background-color);
 }
 
+body {
+    height: 100%;
+}
+
+footer {
+    flex: 0 0 auto;
+}
+
 h1, h2, h3, h4 {
     color: var(--text-color);
 }

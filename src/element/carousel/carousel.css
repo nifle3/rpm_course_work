@@ -14,7 +14,7 @@
 
 .splide__arrow > img {
     height: 20rem;
-    opacity: 0.5;
+    opacity: 0.4;
     transition: opacity 300ms ease-out;
 }
 

@@ -5,7 +5,7 @@ import leftArrow from "../icons/left.svg"
 import rightArrow from "../icons/right.svg"
 import image from "../icons/img.png"
 import image2 from "../icons/img2.jpg"
-// @ts-expect-error BECAUSE TS IS SUCK
+// @ts-expect-error BECAUSE IT'S REALLY STRANGE ERROR
 import {SplideSlide, Splide, SplideTrack} from "@splidejs/react-splide";
 import Options from "../opts.ts"
 

@@ -1,5 +1,7 @@
 .footer{
-    flex: 0 0 auto;
+    position: absolute;
+    width: 90%;
+    bottom: 0;
     padding-top: 4vh;
     display: flex;
     flex-direction: column;
@@ -8,6 +10,7 @@
 .contact-info {
     flex-direction: row;
     text-align: center;
+    justify-items: center;
 }
 
 .link-to-social {
