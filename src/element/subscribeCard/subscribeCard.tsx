@@ -1,4 +1,6 @@
 import "./subscribeCard.css"
+import {useMutation} from "@tanstack/react-query";
+import {useState} from "react";
 
 //TODO: Выровнять
 //TODO: Сделать одинаковый размер
@@ -9,19 +11,24 @@ export interface SubscribeCardProps {
     month : string
     description : string
     price : number
+    id? : number
 }
 
-export default function SubscribeCard({priceDescription, name, month, description, price} : SubscribeCardProps) {
-    let color : string = "#5F7C8D"
-    if (price < 300) {
-        color = "#C39028"
-    } else if (price < 750 || (price >= 850 && price <= 2349)) {
-        color = "#1263DE"
+export default function SubscribeCard({priceDescription, name, month, description, price, id} : SubscribeCardProps) {
+    const getColor = (): string  => {
+        if (price < 300)
+            return  "#C39028"
+
+        if (price < 750 || (price >= 850 && price <= 2349))
+            return "#1263DE"
+
+        return "#5F7C8D"
+
     }
 
     return (
-        <div className={"subscribe-card"}>
-            <div className={"subscribe-card-div"} style={{backgroundColor: color}}>
+        <div className={"subscribe-card"} key={id}>
+            <div className={"subscribe-card-div"} style={{backgroundColor: getColor()}}>
                 <div className={"subscribe-card-content"}>
                     <h1>{name}</h1>
                     <div className={"month-wrapper"}>

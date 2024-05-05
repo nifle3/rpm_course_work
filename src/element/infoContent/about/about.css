@@ -1,0 +1,24 @@
+.info-content-about {
+    width: 50%;
+    margin-left: 4rem;
+    margin-top: 3rem;
+}
+
+.about-title {
+    font-family: Inter, serif;
+    font-weight: 400;
+    font-size: 3rem;
+    color: var(--text-color);
+}
+
+.about-description {
+    color: var(--text-color);
+    font-family: Inter, serif;
+    font-size: 1.4rem;
+    overflow:hidden;
+    max-width: 2rem;
+}
+
+.about-button-wrapper {
+    margin-top: 6rem;
+}

@@ -1,6 +1,11 @@
 .main-container {
-    display: flex;
-    flex-direction: column;
-    margin-left: clamp(1vw, 7vw, 20vw);
-    margin-right: clamp(1vw, 7vw, 20vw);
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+@media (max-width: 1254px) {
+    .main-container{
+        margin-left: 0;
+        margin-right: 0;
+    }
 }

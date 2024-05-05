@@ -9,13 +9,13 @@ export default function Footer() {
         <footer className={"footer"}>
             <div className={"contact-info"}>
                 <div className={""}>
-                    <a className={"link-to-social"} href={"#"}>
+                    <a className={"link-to-social"} href={"https://vk.com/kitpp"}>
                         <img src={vkIcon} alt={"vk"}/>
                     </a>
-                    <a className={"link-to-social"} href={"#"}>
+                    <a className={"link-to-social"} href={"https://t.me/kitpptg"}>
                         <img src={tgIcon} alt={"tg"}/>
                     </a>
-                    <a className={"link-to-social"} href={"#"}>
+                    <a className={"link-to-social"} href={"https://twitter.com"}>
                         <img src={twitterIcon} alt={"twitter"}/>
                     </a>
                 </div>

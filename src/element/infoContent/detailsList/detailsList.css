@@ -1,0 +1,20 @@
+.details-list-title {
+    font-size: 1rem;
+    font-family: Inter, serif;
+    font-weight:  500;
+    color: #d9d9d9;
+}
+
+.details-list-li-wrapper {
+    margin-top: 0.5rem;
+}
+
+.details-list-li {
+    margin-bottom: 0.4rem;
+    list-style: none;
+    margin-top: 0.25rem;
+    color: white;
+    font-family: Inter, serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+}

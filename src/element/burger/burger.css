@@ -35,14 +35,13 @@
 }
 
 .burger-list {
-    margin-top: 5rem;
+    margin-top: 6rem;
 }
 
 .list-item {
     transition: color 300ms ease-out;
     color: var(--text-hover-color);
     margin-top: 3rem;
-    margin-left: 0.5vw;
     display: flex;
     flex-direction: row;
     justify-items: start;
@@ -55,5 +54,8 @@
 }
 
 .list-link {
+    font-family: Inter, serif;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
     margin-left: 2rem;
 }

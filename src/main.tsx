@@ -15,35 +15,41 @@ import NotInAccount from "./containers/notInAccount/notInAccount.tsx"
 import Settings from "./pages/settings/settings.tsx"
 import DataSettings from "./pages/dataSettings/dataSettings.tsx";
 import SubscribeSettings from "./pages/subscribeSettings/subscribeSettings.tsx";
-import History from "./pages/history/history.tsx";
 import SubscribeCode from "./pages/subscrbeCode/subscribeCode.tsx";
+import Error from "./pages/error/error.tsx";
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
 
+const queryClient = new QueryClient()
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
-        <BrowserRouter>
-            <Routes>
-                <Route path={"/enterToAccount"} element={<Login/>}>
-                    <Route index element={<AuthorizationForm/>}/>
-                    <Route path={"registration"} element={<RegistrationForm/>}/>
-                </Route>
+        <QueryClientProvider client={queryClient}>
+            <BrowserRouter>
+                <Routes>
+                    <Route path={"/enterToAccount"} element={<Login/>}>
+                        <Route index element={<AuthorizationForm/>}/>
+                        <Route path={"registration"} element={<RegistrationForm/>}/>
+                    </Route>
 
-                <Route path={"/"} element={<Main/>}>
-                    <Route index element={<Major/>}/>
-                    <Route path={"/movie"} element={<MajorMovie/>}/>
-                    <Route path={"/anime"} element={<MajorAnime/>}/>
-                    <Route path={"/serial"} element={<MajorSerial/>}/>
-                    <Route path={"/my"} element={<My/>}/>
-                    <Route path={"/subscribe"} element={<Subscribe/>}/>
-                    <Route path={"/notInAccount"} element={<NotInAccount/>}/>
-                </Route>
+                    <Route path={"/"} element={<Main/>}>
+                        <Route index element={<Major/>}/>
+                        <Route path={"/movie"} element={<MajorMovie/>}/>
+                        <Route path={"/anime"} element={<MajorAnime/>}/>
+                        <Route path={"/serial"} element={<MajorSerial/>}/>
+                        <Route path={"/my"} element={<My/>}/>
+                        <Route path={"/subscribe"} element={<Subscribe/>}/>
+                        <Route path={"/notInAccount"} element={<NotInAccount/>}/>
+                    </Route>
 
-                <Route path={"/settings"} element={<Settings/>}/>
-                <Route path={"/settings/subscribe"} element={<SubscribeSettings/>}/>
-                <Route path={"/settings/data"} element={<DataSettings/>}/>
-                <Route path={"/history"} element={<History/>}/>
-                <Route path={"/code"} element={<SubscribeCode/>}/>
-            </Routes>
-        </BrowserRouter>
+                    <Route path={"/settings"} element={<Settings/>}/>
+                    <Route path={"/settings/subscribe"} element={<SubscribeSettings/>}/>
+                    <Route path={"/settings/data"} element={<DataSettings/>}/>
+                    <Route path={"/code"} element={<SubscribeCode/>}/>
+
+                    <Route path={"/*"} element={<Error errorCode={404} errorShortInfo={"Page not found"}
+                                                       errorInfo={"You have incorrect uri"}/>}/>
+                </Routes>-
+            </BrowserRouter>
+        </QueryClientProvider>
     </React.StrictMode>
 )

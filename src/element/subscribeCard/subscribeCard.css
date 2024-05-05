@@ -7,6 +7,8 @@
     padding: 1vh;
     width: clamp(234px, 4vw, 100px);
     height: clamp(450px, 4vh, 300px);
+    margin-top: 2rem;
+
 }
 
 .subscribe-card-div {
@@ -81,11 +83,5 @@
     .subscribe-btn:hover::after {
         transform: rotateZ(120deg) translate(-9em, 8em);
         transition: transform 0.5s ease-out;
-    }
-}
-
-@media (max-width: 1450px) {
-    .subscribe-card {
-        margin-top: 2rem;
     }
 }

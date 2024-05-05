@@ -1,0 +1,56 @@
+.button-info-content {
+    font-family: Inter, serif;
+    font-size: 1.3rem;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 10px;
+}
+
+.button-info-content-activate {
+    color: white;
+    animation: activate 300ms ease-out forwards;
+}
+
+.button-info-content-default {
+    color: white;
+    background-color: #626262;
+}
+
+.button-info-content-disable {
+    color: #b6b6b6;
+    animation: disable 300ms ease-out forwards;
+}
+
+.button-info-content-disable-default {
+    color: #b6b6b6;
+    background: none;
+}
+
+.button-info-content-disable, .button-info-content-disable-default {
+    transition: color 300ms ease-out;
+}
+
+.button-info-content-disable:hover, .button-info-content-disable-default:hover {
+    color: white;
+}
+
+@keyframes activate {
+    0% {
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    100% {
+        background-color: #626262;
+    }
+
+}
+
+@keyframes disable {
+    0% {
+        background-color: #626262;
+    }
+
+    100% {
+        background-color: rgba(0, 0, 0, 0);
+    }
+}

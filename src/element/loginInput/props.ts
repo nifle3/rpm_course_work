@@ -1,5 +1,7 @@
+import {RefObject} from "react";
+
 export interface InputProps {
     placeHolder : string
-    isRequired? : boolean
-    className? : string
+    inputRef : RefObject<HTMLInputElement>
+    className : string
 }

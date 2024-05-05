@@ -1,7 +1,7 @@
 import "./login.css"
 import backgroundImage from "./icons/backgroundImage.png"
 import {Link, Outlet} from "react-router-dom";
-import {useLayoutEffect, useState} from "react";
+import {useEffect, useLayoutEffect, useState} from "react";
 import Exit from "../../element/exit/exit.tsx";
 
 export default function Login() {
@@ -13,6 +13,12 @@ export default function Login() {
             swapToRegistration()
         }
     });
+
+    useEffect(() => {
+        if (document.documentURI.endsWith("/enterToAccount")) {
+            swapToEnterToAccount()
+        }
+    }, []);
 
     const swapToRegistration = () => {
         setIsRegistration(true)

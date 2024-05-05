@@ -2,10 +2,21 @@ import "./dataSettings.css"
 import icon from "./icons/710zC3Z.png"
 import Exit from "../../element/exit/exit.tsx";
 import DataSettingsInput from "../../element/dataSettingsInput/dataSettingsInput.tsx";
+import {useStore} from "../../store.ts";
+import Error from "../error/error.tsx";
+import {useEffect} from "react";
 
 
-//TODO: сделать так что бы аватарка затемнялась при наводке
 export default function DataSettings() {
+    useEffect(() => {
+        document.title = document.title = "КИНОHUB | Аккаунт"
+    });
+
+    const isLogin = useStore(set => set.isLogin)
+    if (!isLogin) {
+        return <Error errorCode={401} errorInfo={"Yoy have no jwt code in your local storage"} errorShortInfo={"Please first login"}/>
+    }
+
     return (
         <>
             <Exit RedirectTo={"/settings"}/>

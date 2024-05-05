@@ -4,11 +4,12 @@ import Magnifier from "../../element/magnifier/magnifier.tsx";
 import {Link, useNavigate,} from "react-router-dom";
 import {useState} from "react";
 import MiniProfile from "../../element/miniProfile/miniProfile.tsx";
+import {useStore} from "../../store.ts";
 
-//TODO: Добавить обработку профиля
 export default function Header() {
     const [majorUri, setMajorUri] = useState("/");
     const navigate = useNavigate();
+    const isLogin = useStore((set) => set.isLogin)
 
     const setMajorUriTo = (uri : string) => {
         return () => {
@@ -19,10 +20,6 @@ export default function Header() {
         }
     }
 
-    const onClickBtn = () => {
-        navigate("/")
-    }
-    //<button className={"profile-info"} onClick={onClickBtn}>Войти</button>
     const setMajorUriToDefault = setMajorUriTo("/")
     const setMajorUriToMovie = setMajorUriTo("/movie")
     const setMajorUriToAnime = setMajorUriTo("/anime")
@@ -41,7 +38,10 @@ export default function Header() {
                 <Magnifier/>
             </div>
 
-            <MiniProfile/>
+            {isLogin ?
+                <MiniProfile/> :
+                <button className={"profile-info"} onClick={() => {navigate("/enterToAccount")}}>Войти</button>
+            }
         </header>
     )
 }
