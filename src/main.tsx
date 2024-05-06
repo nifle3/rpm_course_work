@@ -18,8 +18,10 @@ import SubscribeSettings from "./pages/subscribeSettings/subscribeSettings.tsx";
 import SubscribeCode from "./pages/subscrbeCode/subscribeCode.tsx";
 import Error from "./pages/error/error.tsx";
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
+import ErrorNavigate from "./pages/error/errorNavigate.tsx";
+import Player from "./pages/player/player.tsx";
 
-const queryClient = new QueryClient()
+export const queryClient = new QueryClient()
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
@@ -45,10 +47,13 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                     <Route path={"/settings/subscribe"} element={<SubscribeSettings/>}/>
                     <Route path={"/settings/data"} element={<DataSettings/>}/>
                     <Route path={"/code"} element={<SubscribeCode/>}/>
+                    <Route path={"/player/:src"} element={<Player/>}/>
 
                     <Route path={"/*"} element={<Error errorCode={404} errorShortInfo={"Page not found"}
                                                        errorInfo={"You have incorrect uri"}/>}/>
-                </Routes>-
+
+                    <Route  path={"/error/:errorCode"} element={<ErrorNavigate/>}/>
+                </Routes>
             </BrowserRouter>
         </QueryClientProvider>
     </React.StrictMode>

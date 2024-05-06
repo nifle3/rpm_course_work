@@ -1,7 +1,12 @@
 .subscribe-settings-container {
-    position: absolute;
-    top: 30%;
-    left: 30%;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+}
+
+.subscribe-settings-container > * {
+    place-self: center;
 }
 
 .subscribe-settings-title {
@@ -13,6 +18,16 @@
 
 .subscribe-settings-info-container {
     margin-top: 3rem;
+}
+
+.subscribe-settings-wrapper {
+    width: 35rem;
+}
+
+@media (max-width: 600px) {
+    .subscribe-settings-wrapper {
+        width: 100%;
+    }
 }
 
 .subscribe-settings-status {

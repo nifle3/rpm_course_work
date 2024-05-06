@@ -32,7 +32,7 @@ export default function Series({title, countOfSeasons} : SeriesProps) {
                     </div>
                 ))}
             </div>
-            <CarouselWatch/>
+                <CarouselWatch/>
         </div>
     )
 }

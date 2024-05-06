@@ -59,3 +59,31 @@
     margin-top: 0.5rem;
     margin-left: 2rem;
 }
+
+@media (max-width: 850px) {
+    .burger-icon {
+        visibility: hidden;
+    }
+
+    .burger-title {
+        margin-right: 3rem;
+    }
+
+    .burger {
+        align-items: center;
+        width: 100%;
+        background-color: var(--burger-color);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .burger-dropdown {
+        position: relative;
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .burger-list {
+        margin-top: 0;
+    }
+}

@@ -105,7 +105,10 @@ export default function InfoContentMany({watchButton, aboutButton} : InfoContent
                     <ButtonInfoContent onClick={clickDetails} text={"Детали"} className={detailsClass}/>
                 </div>
                 {aboutSet && <About watchButtonTitle={watchButton}/>}
-                {seriesSet && <Series title={"Пацаны"}  countOfSeasons={3}/>}
+
+                {seriesSet &&
+                        <Series title={"Пацаны"}  countOfSeasons={3}/>
+                }
                 {detailsSet && <Details/>}
             </div>
         </div>

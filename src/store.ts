@@ -2,7 +2,6 @@ import {create} from "zustand";
 
 type State = {
     isLogin : boolean
-    jwtKey : string | null
 }
 
 type Actions = {
@@ -14,13 +13,12 @@ const jwt_key_name = "jwt-key"
 
 export const useStore = create<State & Actions>((set) => ({
     isLogin:localStorage.getItem(jwt_key_name) != null,
-    jwtKey : localStorage.getItem(jwt_key_name),
     Login: (jwt_key : string) => {
         localStorage.setItem(jwt_key_name, jwt_key)
-        set({isLogin: true, jwtKey: jwt_key})
+        set({isLogin: true})
     },
     Logout: () => {
         localStorage.removeItem(jwt_key_name)
-         set({isLogin: false, jwtKey: null})
+         set({isLogin: false})
     },
 }))

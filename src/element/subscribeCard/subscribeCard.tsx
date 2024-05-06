@@ -1,9 +1,9 @@
 import "./subscribeCard.css"
-import {useMutation} from "@tanstack/react-query";
-import {useState} from "react";
-
-//TODO: Выровнять
-//TODO: Сделать одинаковый размер
+import {useMutation, useQuery} from "@tanstack/react-query";
+import Api from "../../api.ts";
+import {useNavigate} from "react-router-dom";
+import {queryClient} from "../../main.tsx";
+import {useStore} from "../../store.ts";
 
 export interface SubscribeCardProps {
     priceDescription : string
@@ -11,10 +11,37 @@ export interface SubscribeCardProps {
     month : string
     description : string
     price : number
-    id? : number
+    id : number
 }
 
 export default function SubscribeCard({priceDescription, name, month, description, price, id} : SubscribeCardProps) {
+    const navigate = useNavigate()
+    const { isPending, isError, data, error} = useQuery({
+        queryKey: ['profile'],
+        queryFn: Api.GetUser,
+    })
+    const mutation = useMutation({
+        mutationFn: Api.LinkWithSubscribe(id),
+        onSuccess: async () =>{
+            await queryClient.invalidateQueries({
+                queryKey: ['profile']
+            })
+        },
+        onError: (error) => {
+            console.log(error)
+            navigate("/error/500")
+        }
+    })
+
+    if (isPending) {
+        return <span>Загрузка</span>
+    }
+
+    if (isError) {
+        navigate("/error/" + error.name)
+    }
+
+
     const getColor = (): string  => {
         if (price < 300)
             return  "#C39028"
@@ -23,7 +50,10 @@ export default function SubscribeCard({priceDescription, name, month, descriptio
             return "#1263DE"
 
         return "#5F7C8D"
+    }
 
+    const onClick = () => {
+        mutation.mutate()
     }
 
     return (
@@ -38,7 +68,10 @@ export default function SubscribeCard({priceDescription, name, month, descriptio
                 </div>
             </div>
             <h3>{priceDescription}</h3>
-            <button className={"subscribe-btn"}>Оформить подписку</button>
+            {data.have_subscribe ? <button className={"subscribe-btn"}>У вас уже есть подписка</button> :
+                <button className={"subscribe-btn"} onClick={onClick} disabled={mutation.isPending}>
+                    {mutation.isPending ? "Оформляем" : "Оформить подписку"}
+                </button>}
         </div>
     )
 }

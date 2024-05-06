@@ -41,13 +41,14 @@ export default function AuthorizationForm() {
             throw "Password is null"
         }
 
-        if (email.current.validationMessage != "") {
+        if (!email.current.validity.valid) {
             setError("Почта: " +email.current.validationMessage)
             return
         }
 
-        if (password.current.validationMessage != "") {
+        if (!password.current.validity.valid) {
             setError("Пароль: " +  password.current.validationMessage)
+            return;
         }
 
         mutation.mutate({password: password.current.value, email: email.current.value})
@@ -58,7 +59,7 @@ export default function AuthorizationForm() {
             <LoginInput placeHolder={"Почта"} className={"authorization-form-element"} inputRef={email}/>
             <LoginInputPassword placeHolder={"Пароль"} className={"authorization-form-element"} inputRef={password}/>
             <LoginButton text={"Войти"} className={"auth-form-button"} action={onClick} isDisable={mutation.isPending}/>
-            <span className={"form-error"}>{error}</span>
+            <span className={"error"}>{error}</span>
         </div>
     )
 }

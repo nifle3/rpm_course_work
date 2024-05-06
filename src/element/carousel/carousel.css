@@ -13,12 +13,11 @@
 
 
 .splide__arrow > img {
-    height: 20rem;
+    height: 10rem;
     opacity: 0.4;
     transition: opacity 300ms ease-out;
 }
 
 .splide__arrow > img:hover {
-    height: 20rem;
     opacity: 0.8;
 }

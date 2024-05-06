@@ -1,10 +1,39 @@
 .data-settings-container {
     display: flex;
+    flex-direction: row;
     position: absolute;
     top: 10rem;
     left: 20rem;
 }
 
+@media (max-width: 850px) {
+    .data-settings-container {
+        flex-direction:column-reverse ;
+        top: 10rem;
+        left: 0;
+    }
+
+    .data-settings-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+
+    }
+
+    .data-settings-image-wrapper, .data-settings-ava-wrapper {
+        display: grid;
+        place-items: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 1400px) {
+    .data-settings-container {
+        top: 10rem;
+        left: 5rem;
+    }
+}
 .data-settings-title{
     color: var(--text-color);
     font-family: Inter, serif;
@@ -20,20 +49,46 @@
 }
 
 .data-settings-ava-wrapper {
-    display: block;
+    display: grid;
     position: relative;
     margin-left: 5rem;
     border-radius: 50%;
     width: 20rem;
     height: 20rem;
+    justify-items: center;
+    align-items: center;
 }
 
-.data-settings-ava-wrapper:after {
-    content: "";
-    position: absolute;
-    background: white;
-    opacity: 0;
+.data-settings-ava-wrapper > * {
+    grid-row: -1 / 1;
+    grid-column: -1 / 1;
+    object-fit: cover;
 }
+
+.pen-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 300ms ease-out;
+    visibility: hidden;
+    background-color: #00000080;
+}
+
+
+
+@media (hover:hover) {
+    .data-settings-ava-wrapper:hover .pen-wrapper {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.pen-wrapper > img {
+    width: 10rem;
+}
+
 
 .data-settings-image {
     border-radius: inherit;

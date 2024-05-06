@@ -4,13 +4,16 @@ import Details from "../details/details.tsx";
 import bckImage from "../icons/img.png"
 import ButtonInfoContent from "../button/buttonInfoContent.tsx";
 import {useState} from "react";
+import InfoContentPrps from "../infoContentProps.ts";
+import Api from "../../../api.ts";
+import {useNavigate} from "react-router-dom";
 
 type classes = "button-info-content-activate" | "button-info-content-disable" | "button-info-content-default" |
     "button-info-content-disable-default"
 
 type blurClass = "info-content-image" | "info-content-image-blur"
 
-export default function InfoContentMovie() {
+export default function InfoContentMovie( {id, name, description, descriptionDetails, imagePath} : InfoContentPrps) {
     const [imgClass, setImgClass] = useState<blurClass>("info-content-image")
 
     const [aboutSet, setAboutSet] = useState<boolean>(true)
@@ -55,14 +58,14 @@ export default function InfoContentMovie() {
 
     return (
         <div className={"info-content"}>
-            <img src={bckImage} alt={""} className={imgClass}/>
+            <img src={Api.GetImage(imagePath)} alt={""} className={imgClass}/>
             <div className={"info-content-wrapper"}>
                 <div className={"info-content-button-wrapper"}>
                     <ButtonInfoContent onClick={clickAbout} text={"О фильме"} className={aboutClass}/>
                     <ButtonInfoContent onClick={clickDetails} text={"Детали"} className={detailsClass}/>
                 </div>
-                {aboutSet && <About watchButtonTitle={"Смотреть фильм"}/>}
-                {detailsSet && <Details/>}
+                {aboutSet && <About watchButtonTitle={"Смотреть фильм"} id={id} title={name} descriptions={description}/>}
+                {detailsSet && <Details Id={id} Title={name} Descriptions={descriptionDetails}/>}
             </div>
         </div>
     )

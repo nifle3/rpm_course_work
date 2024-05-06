@@ -7,7 +7,9 @@ export default function Main() {
     return (
         <div className={"main-container"}>
             <Header/>
-            <Outlet/>
+            <div className={"content"}>
+                <Outlet/>
+            </div>
             <Footer/>
         </div>
     )

@@ -5,34 +5,45 @@ import {useStore} from "../../store.ts";
 import Welcome from "../../element/welcomeMajor/welcome/welcome.tsx";
 import {useQuery} from "@tanstack/react-query";
 import Api from "../../api.ts";
-import Error from "../../pages/error/error.tsx";
+import CarouselContent from "../../element/carousel/carouselContent/carouselContent.tsx";
+import {useNavigate} from "react-router-dom";
 
 export default function Major() {
     const isLogin = useStore(set => set.isLogin)
-    const jwtToken = useStore(set => set.jwtKey)
+    const navigate = useNavigate()
 
     useEffect(() => {
         document.title = "КИНОHUB"
     });
 
-    const {isPending, isError, data, error} = useQuery({
-        queryKey: ["haveSubscribe"],
-        queryFn: Api.GetUser(jwtToken??"")
+    const {isPending, isError, data} = useQuery({
+        queryKey: ['profile'],
+        queryFn: Api.GetUser,
+        retry: 3,
+        enabled: isLogin,
     })
 
+    if (!isLogin) {
+        return <Welcome/>
+    }
+
     if (isError){
-        return <Error  errorCode={500} errorInfo={error.message} errorShortInfo={error.name}/>
+        navigate("/error/" + 500)
     }
 
     if (isPending){
         return <span>Loading</span>
     }
 
+    if (!isLogin || !data.have_subscribe) {
+        return <Welcome/>
+    }
+
     return (
         <>
-            {isLogin && data.have_subscribe ?
-                <WelcomeSubscribe/> : <Welcome/>
-            }
+            <WelcomeSubscribe/>
+
+            <CarouselContent Title={"Посмотреть вечером"} Action={Api.GetAllMovie} ContentType={"movie"}/>
         </>
     )
 }

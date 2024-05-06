@@ -22,9 +22,6 @@ export default function RegistrationForm() {
 
     const mutation = useMutation({
         mutationFn: Api.Registration,
-        onSuccess: () => {
-            navigate("/")
-        },
         onError: () => {
             setError("Ошибка запроса")
         }
@@ -43,17 +40,17 @@ export default function RegistrationForm() {
             throw "Password is null"
         }
 
-        if (email.current.validationMessage != "") {
+        if (!email.current.validity.valid) {
             setError("Почта: " + email.current.validationMessage)
             return
         }
 
-        if (password.current.validationMessage != "") {
+        if (!password.current.validity.valid) {
             setError("Пароль: " +  password.current.validationMessage)
             return
         }
 
-        if (repeatPassword.current.validationMessage != "") {
+        if (!repeatPassword.current.validity.valid) {
             setError("Повторите пароль: " +  repeatPassword.current.validationMessage)
             return
         }
@@ -64,7 +61,7 @@ export default function RegistrationForm() {
         }
 
         mutation.mutate({password: password.current.value, email: email.current.value})
-
+        navigate("/")
     }
 
     return (
@@ -73,7 +70,7 @@ export default function RegistrationForm() {
             <LoginInputPassword placeHolder={"Пароль"} className={"registration-form-element"} inputRef={password}/>
             <LoginInputPassword placeHolder={"Повторный пароль"} className={"registration-form-element"} inputRef={repeatPassword}/>
             <LoginButton text={"Зарегистрироваться"} className={"registration-form-button"} action={onClilck} isDisable={mutation.isPending}/>
-            <span>{error}</span>
+            <span className={"error"}>{error}</span>
         </div>
     )
 }

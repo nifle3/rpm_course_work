@@ -1,8 +1,11 @@
 .info-content {
     display: grid;
     width: 100%;
+    height: fit-content;
+    overflow: hidden;
     margin-top: 2rem;
     animation: info-content-in 500ms ease-out forwards;
+    max-height: 40rem;
 }
 
 @keyframes info-content-in {
@@ -34,6 +37,8 @@
 }
 
 .info-content > * {
+    overflow: hidden;
+    width: 100%;
     grid-row: 1 / -1;
     grid-column: 1 / -1;
 }
@@ -53,12 +58,5 @@
     width: inherit;
     height: inherit;
     z-index: 0;
-}
-
-.info-content-image-blur {
-    filter: blur(3px);
-}
-
-.info-content-image-blur-dark {
     filter: blur(10px) brightness(0.5);
 }

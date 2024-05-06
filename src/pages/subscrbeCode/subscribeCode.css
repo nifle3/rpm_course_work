@@ -1,16 +1,11 @@
 .subscribe-code-container {
+    height: 100%;
     display: flex;
     align-content: center;
     justify-content: center;
+    align-items: center;
 }
 
-.subscribe-code-title {
-    margin-top: 30%;
-}
-
-.subscribe-code-input-wrapper {
-    margin-top: 10rem;
-}
 
 .subscribe-code-input {
     height: 2.5rem;

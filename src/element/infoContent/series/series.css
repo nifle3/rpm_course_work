@@ -41,3 +41,8 @@
     font-size: 3rem;
     color: var(--text-color);
 }
+
+.series-carousel-watch {
+    width: 60rem;
+    overflow: hidden;
+}

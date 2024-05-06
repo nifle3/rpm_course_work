@@ -18,6 +18,7 @@ export default function Subscribe() {
     const { isPending, isError, data, error } = useQuery({
         queryKey: ['subscribes'],
         queryFn: Api.GetSubscribes,
+        enabled: isLogin,
     })
 
     if (!isLogin) {
@@ -36,7 +37,7 @@ export default function Subscribe() {
         <div className={"subscribe-div"}>
             {
                 data.map((value) =>
-                    <SubscribeCard id={value.id} price={value.discount} priceDescription={value.description} month={value.count_month}
+                    <SubscribeCard id={value.id} price={value.price} priceDescription={value.description} month={value.count_month}
                                     name={value.name} description={value.title}/>
                 )
             }

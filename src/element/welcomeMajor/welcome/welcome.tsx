@@ -4,8 +4,6 @@ import logo from "./icons/logo.svg"
 import {useNavigate} from "react-router-dom";
 import {useStore} from "../../../store.ts";
 
-//TODO: сделать лого не фулл картинкой
-//TODO: сделать лучше градиент
 export default function Welcome() {
     const navigate = useNavigate()
     const isLogin = useStore(set => set.isLogin)
