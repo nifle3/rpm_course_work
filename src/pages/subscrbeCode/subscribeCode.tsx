@@ -7,6 +7,7 @@ import {useMutation, useQuery} from "@tanstack/react-query";
 import Api from "../../api.ts";
 import {useNavigate} from "react-router-dom";
 import {queryClient} from "../../main.tsx";
+import Loader from "../../element/loader/loader.tsx";
 
 export default function SubscribeCode() {
     useEffect(() => {
@@ -35,7 +36,7 @@ export default function SubscribeCode() {
         return <Error errorCode={401} errorInfo={"Yoy have no jwt code in your local storage"} errorShortInfo={"Please first login"}/>
     }
     if (isPending) {
-        return <span>Загрузка...</span>
+        return <Loader/>
 
     }
     if (isError) {

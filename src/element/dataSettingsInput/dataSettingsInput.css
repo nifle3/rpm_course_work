@@ -57,3 +57,7 @@
     opacity: 1;
     visibility: visible;
 }
+
+.data-settings-data-input:invalid {
+    border-color: red;
+}

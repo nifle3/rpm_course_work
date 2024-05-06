@@ -1,6 +1,7 @@
 import {useMutation, useQuery} from "@tanstack/react-query";
 import Api from "../../api.ts";
 import {queryClient} from "../../main.tsx";
+import Loader from "../../element/loader/loader.tsx";
 
 export default function SubscribeSettingsCont() {
     const mutation = useMutation({
@@ -15,12 +16,12 @@ export default function SubscribeSettingsCont() {
     })
 
     const {data, isError, isPending} = useQuery({
-        queryKey: ['profile'],
+        queryKey: ['subscribe'],
         queryFn: Api.GetSubscribeUser,
     })
 
     if (isPending) {
-        return <span>Загрузка...</span>
+        return <Loader/>
     }
 
     if (isError) {
@@ -30,6 +31,8 @@ export default function SubscribeSettingsCont() {
     const onClick = () => {
         mutation.mutate()
     }
+
+    console.log(data)
 
     return (
         <div className={"subscribe-settings-wrapper"}>

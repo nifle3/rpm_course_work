@@ -4,6 +4,7 @@ import {useStore} from "../../store.ts";
 import {useQuery} from "@tanstack/react-query";
 import Api from "../../api.ts";
 import Error from "../../pages/error/error.tsx";
+import Loader from "../loader/loader.tsx";
 
 export default function MiniProfile() {
     const logout = useStore(set => set.Logout)
@@ -13,7 +14,7 @@ export default function MiniProfile() {
     })
 
     if (isLoading) {
-        return  <span>loading</span>
+        return <Loader/>
     }
 
     if (isError) {

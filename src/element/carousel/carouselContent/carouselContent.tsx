@@ -11,26 +11,24 @@ import {useQuery} from "@tanstack/react-query";
 import Api from "../../../api.ts";
 import {useState} from "react";
 import InfoContentMovie from "../../infoContent/infoContentMovie/infoContentMovie.tsx";
+import Loader from "../../loader/loader.tsx";
 
-type contnentType = "movie" | "serial" | "anime"
 
-
-export interface CarouselContentProps  {
-    Title : string
-    Action : () => Promise<any>
-    ContentType : contnentType
+export interface CarouselContentProps {
+    Title: string
+    Action: () => Promise<any>
 }
 
-export default function CarouselContent({Title, Action, ContentType} : CarouselContentProps) {
+export default function CarouselContent({Title, Action} : CarouselContentProps) {
     const {data, isPending, isError, error} = useQuery({
         queryFn: Action,
-        queryKey: ['content'],
+        queryKey: [],
     })
     const [selectId, setSelectId] = useState<number>(-1)
     const [isOpen, setIsOpen] = useState<boolean>(false)
 
     if (isPending) {
-        return <span>Загрузка...</span>
+        return <Loader/>
     }
 
     if (isError) {
@@ -75,7 +73,7 @@ export default function CarouselContent({Title, Action, ContentType} : CarouselC
                 </Splide>
             </div>
             {
-                isOpen && ContentType == "movie" &&
+                isOpen &&
                 <InfoContentMovie id={data[selectId].id} name={data[selectId].name} description={data[selectId].description}
                                   descriptionDetails={data[selectId].description_details} imagePath={data[selectId].image_path}/>
             }

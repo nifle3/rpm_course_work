@@ -23,13 +23,12 @@ export default function Header() {
     const setMajorUriToDefault = setMajorUriTo("/")
     const setMajorUriToMovie = setMajorUriTo("/movie")
     const setMajorUriToAnime = setMajorUriTo("/anime")
-    const setMajorUriToSerial = setMajorUriTo("/serial")
 
     return (
         <header className={"header"}>
             <div className={"burger"}>
                 <Burger toAnime={setMajorUriToAnime} toDefault={setMajorUriToDefault}
-                        toMovie={setMajorUriToMovie} toSerial={setMajorUriToSerial}/>
+                        toMovie={setMajorUriToMovie}/>
             </div>
             <div className={"navigation-menu"}>
                 <h2><Link to={majorUri} className={"navigation-item"}>Главное</Link></h2>

@@ -2,6 +2,9 @@ import "./my.css"
 import {useEffect} from "react";
 import {useStore} from "../../store.ts";
 import NotInAccount from "../notInAccount/notInAccount.tsx";
+import CarouselWatch from "../../element/carousel/carouselWatch/carouselWatch.tsx";
+import Api from "../../api.ts";
+import CarouselContent from "../../element/carousel/carouselContent/carouselContent.tsx";
 
 export default function My() {
     const isLogin = useStore(set => set.isLogin)
@@ -17,7 +20,10 @@ export default function My() {
 
     return (
         <>
-            <h1>My</h1>
+            <CarouselWatch Title={"Рекомендуется к просмортру"} Action={Api.GetAllMovie}/>
+            <CarouselWatch Title={"От давно забытых студий"} Action={Api.GetAllMovie}/>
+            <CarouselContent Title={"Аниме для вас"} Action={Api.GetAllAnime}/>
+            <CarouselContent Title={"Филмы для вас"} Action={Api.GetAllMovie}/>
         </>
     )
 }

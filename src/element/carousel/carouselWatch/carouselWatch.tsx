@@ -4,44 +4,53 @@ import "@splidejs/react-splide/css"
 import leftArrow from "../icons/left.svg"
 import rightArrow from "../icons/right.svg"
 import playImage from "./icons/play.svg"
-import image from "../icons/img.png"
-import image2 from "../icons/img2.jpg"
 // @ts-expect-error BECAUSE TS IS SUCK
 import {SplideSlide, Splide, SplideTrack} from "@splidejs/react-splide";
 import Options from "../opts.ts"
+import {useQuery} from "@tanstack/react-query";
+import Api from "../../../api.ts";
+import {useNavigate} from "react-router-dom";
+import Loader from "../../loader/loader.tsx";
 
-export default function CarouselWatch() {
-    const imgs = [
-        {image:image},
-        {image:image2},
-        {image:image},
-        {image:image2},
-        {image:image},
-        {image:image2},
-        {image:image},
-        {image:image2},
-        {image:image},
-        {image:image2},
-        {image:image},
-        {image:image2},
-        {image:image},
-        {image:image2},
-        {image:image},
-        {image:image2},
-        {image:image},
-        {image:image2},
-        {image:image},
-    ]
+
+export interface CarouselContentProps  {
+    Title : string
+    Action : () => Promise<any>
+}
+
+
+export default function CarouselWatch({Title, Action} : CarouselContentProps) {
+    const navigate = useNavigate()
+    const {data, isPending, isError, error} = useQuery({
+        queryFn: Action,
+        queryKey: ['content'],
+    })
+
+    if (isPending) {
+        return <Loader/>
+    }
+
+    if (isError) {
+        console.log(error)
+        return <h1>Ошибка загрузки</h1>
+    }
+
+    const onClick = (idx : number | string) => {
+        return () => {
+            navigate("/player/" + idx)
+        }
+    }
+
 
     return (
         <div className={"carousel-wrapper"} >
-            <h2>Продолжить просмотр</h2>
+            <h2>{Title}</h2>
             <Splide hasTrack={false} tag={"section"} options={Options.DEFAULT_OPTIONS}>
                 <SplideTrack>
                     {
-                        imgs.map((imgs, idx) =>
-                            <SplideSlide key={idx} className={"carousel-watch-image-wrapper"}>
-                                <img src={imgs.image} alt={"huy"} className={"carousel-watch-image"}/>
+                        data.map((val, idx) =>
+                            <SplideSlide key={idx} className={"carousel-watch-image-wrapper"} onClick={onClick(val.id)}>
+                                <img src={Api.GetImage(val.image_path)} alt={"huy"} className={"carousel-watch-image"}/>
                                 <img src={playImage} alt={"Играть"} className={"carousel-watch-icon-image"}/>
                             </SplideSlide>)
                     }

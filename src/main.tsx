@@ -8,7 +8,6 @@ import RegistrationForm from "./containers/registrationForm/registrationForm.tsx
 import Major from "./containers/major/major.tsx"
 import MajorMovie from "./containers/majorMovie/majorMovie.tsx"
 import MajorAnime from "./containers/majorAnime/majorAnime.tsx"
-import MajorSerial from "./containers/majorSerial/majorSerial.tsx"
 import My from "./containers/my/my.tsx"
 import Subscribe from "./containers/subscribe/subscribe.tsx"
 import NotInAccount from "./containers/notInAccount/notInAccount.tsx"
@@ -37,7 +36,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                         <Route index element={<Major/>}/>
                         <Route path={"/movie"} element={<MajorMovie/>}/>
                         <Route path={"/anime"} element={<MajorAnime/>}/>
-                        <Route path={"/serial"} element={<MajorSerial/>}/>
                         <Route path={"/my"} element={<My/>}/>
                         <Route path={"/subscribe"} element={<Subscribe/>}/>
                         <Route path={"/notInAccount"} element={<NotInAccount/>}/>

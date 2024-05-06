@@ -6,6 +6,7 @@ import NotInAccount from "../notInAccount/notInAccount.tsx";
 import {useQuery} from "@tanstack/react-query";
 import Error from "../../pages/error/error.tsx";
 import Api from "../../api.ts";
+import Loader from "../../element/loader/loader.tsx";
 
 export default function Subscribe() {
     useEffect(() => {
@@ -26,7 +27,7 @@ export default function Subscribe() {
     }
 
     if (isPending) {
-        return <span>Loading...</span>
+        return <Loader/>
     }
 
     if (isError) {

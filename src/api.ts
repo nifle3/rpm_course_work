@@ -3,6 +3,11 @@ import {EmailAndPasswordData} from "./types.ts";
 const ENDPOINT : string = "http://localhost:8000"
 const jwtKey : string = "jwt-key"
 
+type updatePhotoType = {
+    file : Blob,
+    fileName : string
+}
+
 export default class Api {
     public static async Registration(data : EmailAndPasswordData) {
         return await fetch(ENDPOINT + "/registration/user", {
@@ -54,6 +59,7 @@ export default class Api {
             headers: {
                 "Token": jwt,
                 "Content-Type": "application/json",
+                "Allow": "application/json"
             },
         }).then(resp => {
             return resp.json()
@@ -113,10 +119,10 @@ export default class Api {
         const jwt = localStorage.getItem(jwtKey) ?? ""
 
         return await fetch(ENDPOINT + "/user/get/subscribe", {
-            method: "POST",
+            method: "GET",
             headers: {
                 "Token": jwt,
-                "Accept": "application/json",
+                "Accept":  "application/json",
             },
         }).then(resp => {
             return resp.json()
@@ -163,7 +169,37 @@ export default class Api {
             method: "POST",
             headers: {
                 "Token": jwt,
-            }
-        }).then(response => response.body)
+            },
+        }).then(response => response.blob())
+
+    }
+
+    public static async GetAllAnime() {
+        return await fetch(ENDPOINT + "/content/anime", {
+            method: "GET",
+            headers: {
+                "Allow": "application/json",
+            },
+        }).then(resp => resp.json())
+    }
+
+    public static async UpdatePhoto( types : updatePhotoType) {
+        const jwt = localStorage.getItem(jwtKey) ?? ""
+        const {file, fileName} = types
+
+        let type ="image/jpeg"
+
+        if (fileName.endsWith(".png"))
+            type = "image/png"
+
+        return await fetch(ENDPOINT + "/user/update/user", {
+            method: "POST",
+            headers: {
+                "Token": jwt,
+                "Content-Type": type
+            },
+            body: file,
+        })
+
     }
 }

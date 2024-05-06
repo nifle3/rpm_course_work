@@ -4,6 +4,7 @@ import Api from "../../api.ts";
 import {useNavigate} from "react-router-dom";
 import {queryClient} from "../../main.tsx";
 import {useStore} from "../../store.ts";
+import Loader from "../loader/loader.tsx";
 
 export interface SubscribeCardProps {
     priceDescription : string
@@ -34,7 +35,7 @@ export default function SubscribeCard({priceDescription, name, month, descriptio
     })
 
     if (isPending) {
-        return <span>Загрузка</span>
+        return <Loader/>
     }
 
     if (isError) {

@@ -22,7 +22,7 @@
     z-index: 999999;
     background-color: var(--burger-color);
     width: 18rem;
-    min-height: 25rem;
+    min-height: 22rem;
     position: absolute;
     visibility: hidden;
     opacity: 0;

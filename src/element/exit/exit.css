@@ -3,4 +3,5 @@
     top: 3rem;
     right: 3rem;
     cursor: pointer;
+    z-index: 100;
 }

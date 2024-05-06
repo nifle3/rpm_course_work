@@ -7,6 +7,7 @@ import {useQuery} from "@tanstack/react-query";
 import Api from "../../api.ts";
 import CarouselContent from "../../element/carousel/carouselContent/carouselContent.tsx";
 import {useNavigate} from "react-router-dom";
+import Loader from "../../element/loader/loader.tsx";
 
 export default function Major() {
     const isLogin = useStore(set => set.isLogin)
@@ -32,7 +33,7 @@ export default function Major() {
     }
 
     if (isPending){
-        return <span>Loading</span>
+        return <Loader/>
     }
 
     if (!isLogin || !data.have_subscribe) {
@@ -43,7 +44,9 @@ export default function Major() {
         <>
             <WelcomeSubscribe/>
 
-            <CarouselContent Title={"Посмотреть вечером"} Action={Api.GetAllMovie} ContentType={"movie"}/>
+            <CarouselContent Title={"Посмотреть вечером"} Action={Api.GetAllMovie}/>
+            <CarouselContent Title={"Популярные фильмы"} Action={Api.GetAllMovie}/>
+            <CarouselContent Title={"Популярные аниме"} Action={Api.GetAllAnime}/>
         </>
     )
 }

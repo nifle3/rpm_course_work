@@ -6,6 +6,7 @@ import {useEffect} from "react";
 import { useQuery } from "@tanstack/react-query";
 import Api from "../../api.ts";
 import SubscribeSettingsCont from "../../containers/subscribeSettingsCont/subscribeSettingsCont.tsx";
+import Loader from "../../element/loader/loader.tsx";
 
 export default function SubscribeSettings() {
     useEffect(() => {
@@ -15,7 +16,6 @@ export default function SubscribeSettings() {
     const {data, isError, isPending} = useQuery({
         queryKey: ['profile'],
         queryFn: Api.GetUser,
-        retry: 2,
     })
     const isLogin = useStore(set => set.isLogin)
 
@@ -23,7 +23,7 @@ export default function SubscribeSettings() {
         return <Error errorCode={401} errorInfo={"Yoy have no jwt code in your local storage"} errorShortInfo={"Please first login"}/>
     }
     if (isPending) {
-        return <span>Загрузка...</span>
+        return <Loader/>
     }
 
     if (isError) {

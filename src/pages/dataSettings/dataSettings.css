@@ -66,14 +66,15 @@
 }
 
 .pen-wrapper {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    place-items: center;
     width: 100%;
     height: 100%;
     opacity: 0;
     transition: opacity 300ms ease-out;
     visibility: hidden;
     background-color: #00000080;
+
 }
 
 
@@ -95,4 +96,9 @@
     width: inherit;
     height: inherit;
 
+}
+
+.label-image-wrapper {
+    cursor: pointer;
+    display: inline-block;
 }

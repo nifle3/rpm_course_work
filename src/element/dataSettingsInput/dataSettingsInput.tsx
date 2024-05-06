@@ -12,11 +12,14 @@ export interface DataSettingsInputProps {
     Type : inputType
     SetError : Dispatch<SetStateAction<string>>
     Action : (newValue : string) => MutationFunction<unknown, void>
+    Regexp? : string
+    RegexpValidationError? : string
 }
 
 type backgroundClassType = "" | "data-settings-data-input-wrapper-bcg-color"
 
-export default function DataSettingsInput({Title, Placeholder, Type, Action, SetError} : DataSettingsInputProps) {
+export default function DataSettingsInput({Title, Placeholder, Type, Action, SetError, Regexp,
+                                              RegexpValidationError} : DataSettingsInputProps) {
     const setJwt = useStore(set => set.Login)
 
     const [backgroundColor, setBackgroundColor]
@@ -50,8 +53,11 @@ export default function DataSettingsInput({Title, Placeholder, Type, Action, Set
             throw "INPUT CURRENT IS NULL"
         }
 
+        if (inputRef.current.validity.patternMismatch){
+            SetError(RegexpValidationError ?? inputRef.current.validationMessage)
+        }
+
         if (!inputRef.current.validity.valid) {
-            SetError(inputRef.current.validationMessage)
             return
         }
 
@@ -73,7 +79,8 @@ export default function DataSettingsInput({Title, Placeholder, Type, Action, Set
                 <input value={inputValue} placeholder={Placeholder}
                        onChange={(e) => setInputValue(e.target.value)}
                        className={"data-settings-data-input"} onFocus={changeBcgColor}
-                onBlur={changeBcgColor} type={Type} ref={inputRef} maxLength={50} required={true}/>
+                onBlur={changeBcgColor} type={Type} ref={inputRef} maxLength={50} required={true}
+                pattern={Regexp}/>
                 <span className={"data-settings-input-update"} onClick={onClick}>Изменить</span>
             </div>
         </div>

@@ -2,17 +2,15 @@ import burgerIcon from "./icons/burger.svg"
 import mainIcon from "./icons/mainIcon.svg"
 import movieIcon from "./icons/movieIcon.svg"
 import animeIcon from "./icons/animeIcon.svg"
-import serialIcon from "./icons/serialIcon.svg"
 import "./burger.css"
 
 export interface BurgerProps {
     toDefault : () => void
     toMovie : () => void
     toAnime : () => void
-    toSerial : () => void
 }
 
-export default function Burger({toDefault, toMovie, toAnime, toSerial} : BurgerProps) {
+export default function Burger({toDefault, toMovie, toAnime} : BurgerProps) {
     return (
         <div className={"burger"}>
             <div className={"burger-title"}>
@@ -41,13 +39,6 @@ export default function Burger({toDefault, toMovie, toAnime, toSerial} : BurgerP
                             e.preventDefault()
                             toAnime()
                         }}>Аниме</a>
-                    </li>
-                    <li className={"list-item"}>
-                        <img src={serialIcon} alt={""}/>
-                        <a className={"list-link"} onClick={(e) => {
-                            e.preventDefault()
-                            toSerial()
-                        }}>Сериалы</a>
                     </li>
                 </ul>
             </div>
