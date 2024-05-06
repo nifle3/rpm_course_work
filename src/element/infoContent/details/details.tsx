@@ -2,6 +2,10 @@ import "./details.css"
 import ButtonWatch from "../buttonWatch/buttonWatch.tsx";
 import DetailsList from "../detailsList/detailsList.tsx";
 import {useNavigate} from "react-router-dom";
+import Api from "../../../api.ts";
+import {useQuery} from "@tanstack/react-query";
+import Loader from "../../loader/loader.tsx";
+import Error from "../../../pages/error/error.tsx";
 
 export interface DetailsProps {
     Title : string
@@ -12,15 +16,28 @@ export interface DetailsProps {
 export default function Details({Title, Descriptions, Id} : DetailsProps) {
     const navigate = useNavigate()
 
-    const mainRoles : string[] = ["Глупый хомяк","Глупый хомяк", "Глупый хомяк","Глупый хомяк","Глупый хомяк","Глупый хомяк","Глупый хомяк","Глупый хомяк", "Глупый хомяк", "Глупый хомяк","Глупый хомяк","Глупый хомяк","Глупый хомяк","Глупый хомяк","Глупый хомяк","Глупый хомяк" ]
-    const directors : string[] = ["Глупый хомяк","Глупый хомяк","Глупый хомяк"]
+    const {data, isError, isPending} = useQuery({
+        queryKey: ['content' + Id],
+        queryFn: Api.GetContentInfo(Id),
+    })
+
     const audio : string[] = ["Глупый хомяк","Глупый хомяк","Глупый хомяк","Глупый хомяк"]
     const subbtitles : string[] = ["Глупый хомяк"]
     const originalName : string[] = ["Глупый хомяк"]
 
+    if (isPending) {
+        return <Loader/>
+    }
+
+    if (isError) {
+        return  <Error errorCode={500} errorShortInfo={""} errorInfo={""}/>
+    }
+
     const watchClick = () => {
         navigate("/player" + Id)
     }
+
+    console.log(data)
 
     return (
         <div className={"info-content-details"}>
@@ -37,8 +54,8 @@ export default function Details({Title, Descriptions, Id} : DetailsProps) {
             </div>
             <div className={"info-content-details-right"}>
                 <div className={"info-content-details-creators"}>
-                    <DetailsList  title={"Главные роли"} values={mainRoles}/>
-                    <DetailsList  title={"Режиссеры"} values={directors} className={"details-margin-elem"}/>
+                    <DetailsList  title={"Главные роли"} values={data.actor.map(value => value.name + " " + value.surname)}/>
+                    <DetailsList  title={"Режиссеры"} values={data.director.map(value => value.name + " " + value.surname)} className={"details-margin-elem"}/>
                 </div>
                 <div className={"info-content-details-addons"}>
                     <DetailsList title={"Аудиодорожки"} values={audio}/>

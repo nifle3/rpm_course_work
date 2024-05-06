@@ -202,4 +202,15 @@ export default class Api {
         })
 
     }
+
+    public static  GetContentInfo(idx : number) {
+        return async () => {
+            return await fetch(ENDPOINT + "/content/info/" + idx,{
+                method: "GET",
+                headers: {
+                    "Allowed": "application/json"
+                }
+            }).then(resp => resp.json())
+        }
+    }
 }

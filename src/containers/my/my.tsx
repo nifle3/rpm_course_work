@@ -22,8 +22,8 @@ export default function My() {
         <>
             <CarouselWatch Title={"Рекомендуется к просмортру"} Action={Api.GetAllMovie}/>
             <CarouselWatch Title={"От давно забытых студий"} Action={Api.GetAllMovie}/>
-            <CarouselContent Title={"Аниме для вас"} Action={Api.GetAllAnime}/>
-            <CarouselContent Title={"Филмы для вас"} Action={Api.GetAllMovie}/>
+            <CarouselContent Title={"Аниме для вас"} Action={Api.GetAllAnime} TypeContent={"аниме"}/>
+            <CarouselContent Title={"Филмы для вас"} Action={Api.GetAllMovie} TypeContent={"фильм"}/>
         </>
     )
 }

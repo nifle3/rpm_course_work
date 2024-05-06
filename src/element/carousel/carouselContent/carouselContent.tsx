@@ -17,9 +17,10 @@ import Loader from "../../loader/loader.tsx";
 export interface CarouselContentProps {
     Title: string
     Action: () => Promise<any>
+    TypeContent : "аниме" | "фильм"
 }
 
-export default function CarouselContent({Title, Action} : CarouselContentProps) {
+export default function CarouselContent({Title, Action, TypeContent} : CarouselContentProps) {
     const {data, isPending, isError, error} = useQuery({
         queryFn: Action,
         queryKey: [],
@@ -75,7 +76,8 @@ export default function CarouselContent({Title, Action} : CarouselContentProps) 
             {
                 isOpen &&
                 <InfoContentMovie id={data[selectId].id} name={data[selectId].name} description={data[selectId].description}
-                                  descriptionDetails={data[selectId].description_details} imagePath={data[selectId].image_path}/>
+                                  descriptionDetails={data[selectId].description_details} imagePath={data[selectId].image_path}
+                                  contenType={TypeContent}/>
             }
         </div>
     )

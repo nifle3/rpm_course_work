@@ -4,4 +4,5 @@ export default interface InfoContentPrps {
     description : string
     descriptionDetails : string
     imagePath : string
+    contenType : "аниме" | "фильм"
 }

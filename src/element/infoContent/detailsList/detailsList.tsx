@@ -1,7 +1,7 @@
 import "./detailsList.css"
 
 export interface DetailsListProp {
-    values : string[]
+    values : any[]
     title : string
     className? : string
 }

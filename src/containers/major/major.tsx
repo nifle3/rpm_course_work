@@ -44,9 +44,9 @@ export default function Major() {
         <>
             <WelcomeSubscribe/>
 
-            <CarouselContent Title={"Посмотреть вечером"} Action={Api.GetAllMovie}/>
-            <CarouselContent Title={"Популярные фильмы"} Action={Api.GetAllMovie}/>
-            <CarouselContent Title={"Популярные аниме"} Action={Api.GetAllAnime}/>
+            <CarouselContent Title={"Посмотреть вечером"} Action={Api.GetAllMovie}  TypeContent={"фильм"}/>
+            <CarouselContent Title={"Популярные фильмы"} Action={Api.GetAllMovie} TypeContent={"фильм"}/>
+            <CarouselContent Title={"Популярные аниме"} Action={Api.GetAllAnime} TypeContent={"аниме"}/>
         </>
     )
 }

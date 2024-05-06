@@ -1,5 +1,5 @@
 import "./majorAnime.css"
-import React, {useEffect} from "react";
+import {useEffect} from "react";
 import {useStore} from "../../store.ts";
 import {useNavigate} from "react-router-dom";
 import {useQuery} from "@tanstack/react-query";
@@ -38,10 +38,10 @@ export default function MajorAnime() {
     return (
         <>
             <CarouselWatch Title={"Посмотрите легендарные аниме!"} Action={Api.GetAllAnime}/>
-            <CarouselContent Title={"Боевые аниме"} Action={Api.GetAllAnime}/>
-            <CarouselContent Title={"Лучшие романтические аниме"} Action={Api.GetAllAnime}/>
-            <CarouselContent Title={"Аниме с премией Оскар"} Action={Api.GetAllAnime}/>
-            <CarouselContent Title={"Аниме для всей семьи"} Action={Api.GetAllAnime}/>
+            <CarouselContent Title={"Боевые аниме"} Action={Api.GetAllAnime}  TypeContent={"аниме"}/>
+            <CarouselContent Title={"Лучшие романтические аниме"} Action={Api.GetAllAnime} TypeContent={"аниме"}/>
+            <CarouselContent Title={"Аниме с премией Оскар"} Action={Api.GetAllAnime} TypeContent={"аниме"}/>
+            <CarouselContent Title={"Аниме для всей семьи"} Action={Api.GetAllAnime} TypeContent={"аниме"}/>
         </>
     )
 }

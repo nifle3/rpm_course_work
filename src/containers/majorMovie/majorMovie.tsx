@@ -38,10 +38,10 @@ export default function MajorMovie() {
     return (
         <>
             <CarouselWatch Title={"Посмотрите легендарные фильмы!"} Action={Api.GetAllMovie}/>
-            <CarouselContent Title={"Российские фильмы"} Action={Api.GetAllMovie}/>
-            <CarouselContent Title={"Фильмы для всей семьи"} Action={Api.GetAllMovie}/>
-            <CarouselContent Title={"Фильмы для отдыха"} Action={Api.GetAllMovie}/>
-            <CarouselContent Title={"Сложные фильмы"} Action={Api.GetAllMovie}/>
+            <CarouselContent Title={"Российские фильмы"} Action={Api.GetAllMovie} TypeContent={"фильм"}/>
+            <CarouselContent Title={"Фильмы для всей семьи"} Action={Api.GetAllMovie} TypeContent={"фильм"}/>
+            <CarouselContent Title={"Фильмы для отдыха"} Action={Api.GetAllMovie} TypeContent={"фильм"}/>
+            <CarouselContent Title={"Сложные фильмы"} Action={Api.GetAllMovie} TypeContent={"фильм"}/>
         </>
     )
 }
